@@ -201,6 +201,10 @@ function sms_user_settings_confirm_form_submit($form, &$form_state) {
 }
 
 function sms_user_settings_reset_form(&$form_state, $account) {
+  $form['uid'] = array(
+    '#type' => 'hidden',
+    '#value' => $account->uid,
+  );
   $form['sms_user']['number'] = array(
     '#type' => 'item',
     '#title' => t('Your number'),
