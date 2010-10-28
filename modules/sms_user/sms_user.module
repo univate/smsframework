@@ -9,6 +9,10 @@
 define('SMS_USER_PENDING', 1);
 define('SMS_USER_CONFIRMED', 2);
 
+define('SMS_USER_MAX_CHARS', 140);
+
+require_once 'sms_user.actions.inc';
+
 /**
  * Send a message to a user.
  */
@@ -475,8 +479,12 @@ function sms_user_admin_settings() {
 
   $form['registration']['tokens']['content']['#value'] = theme('token_help', 'sms_user');
 
-
-
+  $form['sms_user_max_chars'] = array(
+    '#type' => 'textfield',
+    '#default_value' => variable_get('sms_user_max_chars', SMS_USER_MAX_CHARS),
+    '#size' => 3,
+    '#title' => t('Maximum number of chars for SMS sending using actions'),
+  );
   return system_settings_form($form);
 }
 
@@ -709,4 +717,11 @@ function sms_user_logout() {
   // Destroy the current session:
   session_destroy();
   $user = drupal_anonymous_user();
+}
+
+/**
+ * Implementation of hook_views_api().
+ */
+function sms_user_views_api() {
+  return array('api' => 2);
 }
