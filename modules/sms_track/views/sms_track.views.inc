@@ -38,7 +38,7 @@ function sms_track_views_handlers() {
 function sms_track_views_data() {
   //TODO: I have left id and options out of this until I can work out how the handlers work.
   return array(
-    'sms_archive' => array(
+    'sms_track' => array(
       'table' => array(
         'group' => t('SMS Archive'),
         'base' => array(
@@ -65,11 +65,11 @@ function sms_track_views_data() {
           'handler' => 'views_handler_sort_date',
         ),
       ),
-      'direction' => array(
+      'dir' => array(
         'title' => t('Direction'),
         'help' => t('Incoming or Outgoing.'),
         'field' => array(
-          'handler' => 'views_handler_field_sms_archive_direction',
+          'handler' => 'views_handler_field_sms_track_direction',
           'click sortable' => TRUE,
         ),
         'argument' => array(
@@ -121,7 +121,7 @@ function sms_track_views_data() {
         'title' => t('Local number'),
         'help' => t('Phone number or ID of remote recipient/sender.'),
         'field' => array(
-          'handler' => 'views_handler_field_sms_archive_local_number',
+          'handler' => 'views_handler_field_sms_track_local_number',
           'click sortable' => TRUE,
         ),
         'argument' => array(
@@ -139,7 +139,7 @@ function sms_track_views_data() {
         'title' => t('Gateway'),
         'help' => t('SMS gateway module name.'),
         'field' => array(
-          'handler' => 'views_handler_field_sms_archive_gateway',
+          'handler' => 'views_handler_field_sms_track_gateway',
           'click sortable' => TRUE,
         ),
         'argument' => array(

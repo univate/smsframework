@@ -18,13 +18,13 @@ function sms_track_views_default_views() {
   $view->description = 'All archived SMS messages - in and out';
   $view->tag = 'sms';
   $view->view_php = '';
-  $view->base_table = 'sms_archive';
+  $view->base_table = 'sms_track';
   $view->is_cacheable = FALSE;
   $view->api_version = 2;
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Default', 'default');
   $handler->override_option('fields', array(
-    'direction' => array(
+    'dir' => array(
       'label' => 'Direction',
       'alter' => array(
         'alter_text' => 0,
@@ -42,14 +42,14 @@ function sms_track_views_default_views() {
         'html' => 0,
       ),
       'exclude' => 0,
-      'id' => 'direction',
-      'table' => 'sms_archive',
-      'field' => 'direction',
+      'id' => 'dir',
+      'table' => 'sms_track',
+      'field' => 'dir',
       'relationship' => 'none',
     ),
     'number' => array(
       'id' => 'number',
-      'table' => 'sms_archive',
+      'table' => 'sms_track',
       'field' => 'number',
     ),
     'message' => array(
@@ -71,7 +71,7 @@ function sms_track_views_default_views() {
       ),
       'exclude' => 0,
       'id' => 'message',
-      'table' => 'sms_archive',
+      'table' => 'sms_track',
       'field' => 'message',
       'relationship' => 'none',
     ),
@@ -96,7 +96,7 @@ function sms_track_views_default_views() {
       'custom_date_format' => '',
       'exclude' => 0,
       'id' => 'created',
-      'table' => 'sms_archive',
+      'table' => 'sms_track',
       'field' => 'created',
       'relationship' => 'none',
     ),
@@ -119,7 +119,7 @@ function sms_track_views_default_views() {
       ),
       'exclude' => 0,
       'id' => 'local_number',
-      'table' => 'sms_archive',
+      'table' => 'sms_track',
       'field' => 'local_number',
       'relationship' => 'none',
     ),
@@ -142,7 +142,7 @@ function sms_track_views_default_views() {
       ),
       'exclude' => 0,
       'id' => 'gateway',
-      'table' => 'sms_archive',
+      'table' => 'sms_track',
       'field' => 'gateway',
       'relationship' => 'none',
     ),
@@ -165,7 +165,7 @@ function sms_track_views_default_views() {
     'sticky' => 0,
     'order' => 'desc',
     'columns' => array(
-      'direction' => 'direction',
+      'dir' => 'dir',
       'number' => 'number',
       'message' => 'message',
       'created' => 'created',
@@ -173,7 +173,7 @@ function sms_track_views_default_views() {
       'gateway' => 'gateway',
     ),
     'info' => array(
-      'direction' => array(
+      'dir' => array(
         'sortable' => 1,
         'separator' => '',
       ),
