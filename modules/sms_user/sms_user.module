@@ -62,6 +62,7 @@ function sms_user_menu() {
     'type' => MENU_LOCAL_TASK,
     'access callback' => 'user_edit_access',
     'access arguments' => array(1),
+    'tab_parent' => 'user/%/edit',
   );
   return $items;
 }
@@ -341,6 +342,14 @@ function sms_user_user($op, &$edit, &$account, $category = NULL) {
         drupal_set_message(t('A confirmation message has been sent to your mobile phone. Please !link.', array('!link' => l(t('confirm your number'), 'user/'. $account->uid .'/mobile'))), 'status');
       }
       break;
+    case 'categories':
+      $categories['mobile'] = array(
+        'name' => 'mobile',
+        'title' => t('Mobile'),
+        'weight' => 10,
+      );
+      return $categories;
+      break;
   }
 }
 
@@ -348,12 +357,12 @@ function sms_user_load(&$edit, &$account, $category) {
   $result = db_query("SELECT number, status, code, gateway FROM {sms_user} WHERE uid = %d", $account->uid);
 
   while ($data = db_fetch_array($result)) {
-    $account->sms_user = array(
-      'number' => $data['number'],
-      'status' => $data['status'],
-      'code' => $data['code'],
-      'gateway' => unserialize($data['gateway']),
-    );
+    $user_data = unserialize($account->data);
+    $account->sms_user = $user_data['sms_user'];
+    $account->sms_user['number'] = $data['number'];
+    $account->sms_user['status'] = $data['status'];
+    $account->sms_user['code'] = $data['code'];
+    $account->sms_user['gateway'] = unserialize($data['gateway']);
   }
 }
 
@@ -368,7 +377,10 @@ function sms_user_save(&$edit, &$account, $category) {
       db_query("INSERT INTO {sms_user} (number, status, code, gateway, uid)
         VALUES ('%s', %d, '%s', '%s', %d)", array_merge($db_values, array($account->uid)));
     }
-    $edit['sms_user'] = NULL;
+    $edit['sms_user']['number'] = NULL;
+    $edit['sms_user']['status'] = NULL;
+    $edit['sms_user']['code'] = NULL;
+    $edit['sms_user']['gateway'] = NULL;
   }
 }
 
