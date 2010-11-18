@@ -55,8 +55,8 @@ function sms_user_menu() {
     'access arguments' => array('administer sms_user'),
   );
 
-  $items['user/%user/mobile'] = array(
-    'title' => 'Mobile settings',
+  $items['user/%user/edit/mobile'] = array(
+    'title' => 'Mobile',
     'page callback' => 'sms_user_settings',
     'page arguments' => array(1),
     'type' => MENU_LOCAL_TASK,
