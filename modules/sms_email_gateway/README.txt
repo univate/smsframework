@@ -1,4 +1,4 @@
-$Id$
+$Id: README.txt,v 1.1.2.2 2010/11/18 05:37:26 univate Exp $
 
 This module provides a simple interface to SMS messaging via e-mail gateways.
 

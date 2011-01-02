@@ -1,4 +1,4 @@
-; $Id$
+; $Id: sms_txtlocal.info,v 1.1.4.2 2010/11/18 06:14:33 univate Exp $
 ;
 ; SMS Framework gateway module for Txtlocal (www.txtlocal.com)
 ;
@@ -10,6 +10,5 @@
 name = "Txtlocal"
 description = "Gateway: Txtlocal"
 package = SMS Framework
-version = 6.x-1.x-dev
 core = 6.x
 dependencies[] = sms

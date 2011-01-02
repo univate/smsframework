@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-// $Id$
+// $Id: mta_process_email.php,v 1.1.2.3 2010/11/18 05:37:26 univate Exp $
 
 /**
  * E-mail processing script for the SMS email gateway module.

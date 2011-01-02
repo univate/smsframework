@@ -1,5 +1,5 @@
 <?php
-// $Id$
+// $Id: sms_txtlocal.module,v 1.1.4.2 2010/11/18 06:14:33 univate Exp $
 /**
  * @file
  * Txtlocal gateway module for Drupal SMS Framework. Outbound+Inbound

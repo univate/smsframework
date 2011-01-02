@@ -1,5 +1,5 @@
 <?php
-// $Id$
+// $Id: sms_devel.send_form.inc,v 1.1.4.3 2010/11/18 11:04:24 univate Exp $
 /**
  * @file
  * Test send form include for the sms_devel module of the SMS Framework.
@@ -29,10 +29,11 @@ function sms_devel_send_form(&$form_state) {
 
   // Message text field for my form
   $form['message'] = array(
-    '#type'  => 'textfield',
+    '#type'  => 'textarea',
     '#title' => t('Message'),
-    '#size'      => 80,
-    '#maxlength' => 160,  // This can be longer if you allow long messages
+    '#rows'  => 4,
+    '#cols'  => 40,
+    '#resizable' => FALSE,
   );
 
   // Submit button for my form

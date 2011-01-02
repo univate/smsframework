@@ -1,5 +1,5 @@
 <?php
-// $Id$
+// $Id: sms_valid.admin.inc,v 1.1.4.2 2010/11/18 06:14:34 univate Exp $
 /**
  * @file
  * SMS Framework core module: Admin settings form functions

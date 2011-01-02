@@ -1,5 +1,5 @@
 <?php
-// $Id$
+// $Id: sms_email_gateway.module,v 1.4.2.2.2.9 2010/11/18 05:37:26 univate Exp $
 
 function sms_email_gateway_gateway_info() {
   return array(
